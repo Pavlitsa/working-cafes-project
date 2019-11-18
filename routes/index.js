@@ -25,12 +25,12 @@ const loginCheck = () => {
   };
 };
 
-router.get("/cafeForm", (req, res, next) => {
+router.get("/cafeForm", loginCheck(), (req, res, next) => {
   res.render("cafeForm.hbs");
 });
 
-router.get("/cafes", (req, res, next) => {
-  console.log("route cafe");
+router.get("/cafes", loginCheck(), (req, res, next) => {
+  // console.log("route cafe");
   Cafes.find()
     .then(cafe => {
       console.log(cafe);
@@ -41,12 +41,12 @@ router.get("/cafes", (req, res, next) => {
     });
 });
 
-router.get("/cafes/:cafeId", (req, res, next) => {
+router.get("/cafes/:cafeId", loginCheck(), (req, res, next) => {
   Cafes.findById(req.params.cafeId);
   res.render("cafeDetails.hbs");
 });
 
-router.post("/cafes", (req, res, next) => {
+router.post("/cafes", loginCheck(), (req, res, next) => {
   Cafes.create({
     name: req.body.name,
     address: req.body.address,
