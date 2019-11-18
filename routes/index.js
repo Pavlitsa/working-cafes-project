@@ -20,7 +20,7 @@ const loginCheck = () => {
     if (req.user) {
       next();
     } else {
-      res.redirect("/");
+      res.redirect("/auth/login");
     }
   };
 };

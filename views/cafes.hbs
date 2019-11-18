@@ -4,6 +4,10 @@
 {{/if}} --}}
 
 <h1>Here is our list of cafes</h1>
+<a href="/cafeForm">Add a cafe</a>
+<br>
+<br>
+<a href="/auth/logout">Logout</a>
 {{#each cafe}}
 
 <p>Name:{{name}}</p>
@@ -11,5 +15,3 @@
 <p>Description: {{description}}</p>
 
 {{/each}}
-<a href="/cafeForm">Add a cafe</a>
-<a href="/auth/logout">Logout</a>
