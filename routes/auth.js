@@ -28,7 +28,7 @@ router.get("/login", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/cafes",
     failureRedirect: "/auth/login",
     failureFlash: true, //This is what will allow us to use flash messages in our application
     passReqToCallback: true
@@ -49,15 +49,15 @@ router.post("/signup", (req, res, next) => {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
-  // the serves searches the database and if it finds the username there, it displays another message
+  // the server searches the database and if it finds the username there, it displays another message
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
-    // added by me 
+    // added by me
     if (password.length < 8) {
-      res.render("signup.hbs", { message: "Password is too short" });
+      res.render("auth/signup", { message: "Password is too short" });
       return;
     }
 
