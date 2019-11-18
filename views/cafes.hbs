@@ -1,0 +1,14 @@
+{{!-- <a href="/cafes/new">Post a room</a>
+{{#if user}}
+<a href="/rooms">View all rooms</a>
+{{/if}} --}}
+
+<h1>Here is our list of cafes</h1>
+{{#each cafe}}
+
+<p>Name:{{name}}</p>
+<p>Address: {{address}}</p>
+<p>Description: {{description}}</p>
+
+{{/each}}
+<a href="/cafeForm">Add a cafe</a>
