@@ -55,9 +55,9 @@ router.post("/signup", (req, res, next) => {
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
-    // added by me 
+    // added by me
     if (password.length < 8) {
-      res.render("signup.hbs", { message: "Password is too short" });
+      res.render("auth/signup", { message: "Password is too short" });
       return;
     }
 
