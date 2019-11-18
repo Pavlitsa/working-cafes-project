@@ -20,7 +20,7 @@ const loginCheck = () => {
     if (req.user) {
       next();
     } else {
-      res.redirect("/");
+      res.redirect("/auth/login");
     }
   };
 };
@@ -33,7 +33,7 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
   // console.log("route cafe");
   Cafes.find()
     .then(cafe => {
-      // console.log(cafe);
+      console.log(cafe);
       res.render("cafes.hbs", { cafe: cafe });
     })
     .catch(err => {
