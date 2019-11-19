@@ -18,6 +18,31 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+router.get("/api/points", (req, res, next) => {
+  Point.find()
+    .then(points => {
+      res.json(points);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.post("/api/points", (req, res, next) => {
+  // retrieve coordinates from req.body
+  console.log(req.body);
+  // use these coordinates to create a Point
+  Point.create({
+    coordinates: req.body.coordinates
+  })
+    .then(() => {
+      res.json();
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 const loginCheck = () => {
   return (req, res, next) => {
     if (req.user) {
@@ -53,7 +78,8 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
   Cafes.create({
     name: req.body.name,
     address: req.body.address,
-    description: req.body.description
+    description: req.body.description,
+    postedBy: req.body.user
   })
     .then(cafe => {
       res.redirect("/cafes");
@@ -67,33 +93,6 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
 //   Cafes.findById(req.params.cafeId);
 //   res.render("cafeDetails.hbs");
 // });
-
-router.get("/api/points", (req, res, next) => {
-  Point.find()
-    .then(points => {
-      res.json(points);
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
-router.post("/api/points", (req, res, next) => {
-  // retrieve coordinates from req.body
-  console.log(req.body);
-  // use these coordinates to create a Point
-  Point.create({
-    coordinates: req.body.coordinates
-  })
-    .then(() => {
-      res.json();
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
-
 
 
 module.exports = router;

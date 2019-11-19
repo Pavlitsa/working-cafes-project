@@ -6,17 +6,12 @@ const cafesSchema = new Schema({
   name: String,
   address: String,
   description: String,
-  coordinates: [Number]
-  // owner: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "User"
-  // },
-  // comments: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Comment"
-  //   }
-  // ],
+  coordinates: [Number],
+
+  postedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 const Cafes = mongoose.model("Cafes", cafesSchema);
