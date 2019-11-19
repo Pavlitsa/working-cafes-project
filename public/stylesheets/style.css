@@ -41,6 +41,12 @@ ul {
   height: 200px;
   align-items: center; }
 
+footer {
+  background: #666;
+  color: white;
+  text-align: center;
+  margin-bottom: auto; }
+
 form {
   margin: 30px auto;
   width: 380px; }
