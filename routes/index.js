@@ -58,11 +58,11 @@ router.get("/cafeForm", loginCheck(), (req, res, next) => {
 });
 
 router.get("/cafes", loginCheck(), (req, res, next) => {
-  // console.log("route cafe");
+  console.log(req.user);
   Cafes.find()
     .then(cafe => {
       //console.log(cafe);
-      res.render("cafes.hbs", { cafe: cafe });
+      res.render("cafes.hbs", { user: req.user.username, cafe: cafe });
     })
     .catch(err => {
       next(err);
@@ -94,5 +94,32 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
 //   res.render("cafeDetails.hbs");
 // });
 
+<<<<<<< HEAD
+=======
+router.get("/api/points", (req, res, next) => {
+  Point.find()
+    .then(points => {
+      res.json(points);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.post("/api/points", (req, res, next) => {
+  // retrieve coordinates from req.body
+  console.log(req.body);
+  // use these coordinates to create a Point
+  Point.create({
+    coordinates: req.body.coordinates
+  })
+    .then(() => {
+      res.json();
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+>>>>>>> auth
 
 module.exports = router;

@@ -1,14 +1,14 @@
-<h1>Welcome:{{user.username}}</h1>
+<h6>Welcome:{{user}}</h6>
 
-{{#if cafe}}
-<h2>Your profile</h2>
-{{/if}}
 
-<h1>Here is our list of cafes</h1>
-<a href="/cafeForm">Add a cafe</a>
+<a class="details" href="/cafeForm">Add a cafe</a>
 <br>
 <br>
+<<<<<<< HEAD
 <a href="/auth/logout">Logout</a>
+=======
+<a class="details" href="/auth/logout">Logout</a>
+>>>>>>> auth
 
 <div id='map' style='width: 600px; height: 400px;'></div>
 <pre id='coordinates' class='coordinates'></pre>
@@ -117,9 +117,14 @@
     getMarkers();
 </script> --}}
 
+<<<<<<< HEAD
 
 <a href="/cafeForm">Add a cafe</a>
 <a href="/auth/logout">Logout</a>
+=======
+{{!-- <a href="/cafeForm">Add a cafe</a>
+<a href="/auth/logout">Logout</a> --}}
+>>>>>>> auth
 
 <h1>List</h1>
 {{#each cafe}}
@@ -131,4 +136,6 @@
 </ul>
 
 <hr>
+
+
 {{/each}}
