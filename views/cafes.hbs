@@ -1,17 +1,21 @@
-{{!-- <a href="/cafes/new">Post a room</a>
-{{#if user}}
-<a href="/rooms">View all rooms</a>
-{{/if}} --}}
+<h1>Welcome:{{user.username}}</h1>
+
+{{#if cafe}}
+<h2>Your profile</h2>
+{{/if}}
 
 <h1>Here is our list of cafes</h1>
 <a href="/cafeForm">Add a cafe</a>
 <br>
 <br>
 <a href="/auth/logout">Logout</a>
+
+{{!-- <a href="/profile/{{_id}}{{name}}">Profile</a> --}}
 {{#each cafe}}
 
-<p>Name:{{name}}</p>
-<p>Address: {{address}}</p>
-<p>Description: {{description}}</p>
+<p>{{name}}</p>
+<p> {{address}}</p>
+<p>{{description}}</p>
+<hr>
 
 {{/each}}

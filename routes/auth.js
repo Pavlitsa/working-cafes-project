@@ -56,7 +56,10 @@ router.post("/signup", (req, res, next) => {
       return;
     }
     // added by me
-    if (password.length < 8) {
+    if (
+      password.length < 8 &&
+      password === "/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/"
+    ) {
       res.render("auth/signup", { message: "Password is too short" });
       return;
     }

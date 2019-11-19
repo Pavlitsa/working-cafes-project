@@ -33,7 +33,7 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
   // console.log("route cafe");
   Cafes.find()
     .then(cafe => {
-      console.log(cafe);
+      //console.log(cafe);
       res.render("cafes.hbs", { cafe: cafe });
     })
     .catch(err => {
@@ -41,10 +41,10 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
     });
 });
 
-router.get("/cafes/:cafeId", loginCheck(), (req, res, next) => {
-  Cafes.findById(req.params.cafeId);
-  res.render("cafeDetails.hbs");
-});
+// router.get("/cafes/:cafeId", loginCheck(), (req, res, next) => {
+//   Cafes.findById(req.params.cafeId);
+//   res.render("cafeDetails.hbs");
+// });
 
 router.post("/cafes", loginCheck(), (req, res, next) => {
   Cafes.create({
@@ -60,9 +60,9 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
     });
 });
 
-router.post("/cafes/:cafeId", (req, res, next) => {
-  Cafes.findById(req.params.findById);
-  res.render("cafeDetails.hbs");
-});
+// router.post("/cafes/:cafeId", (req, res, next) => {
+//   Cafes.findById(req.params.cafeId);
+//   res.render("cafeDetails.hbs");
+// });
 
 module.exports = router;
