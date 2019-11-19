@@ -17,9 +17,12 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcryptjs = require("bcryptjs");
 
 mongoose
-  .connect("mongodb://localhost/working-cafes-project", {
-    useNewUrlParser: true
-  })
+  .connect(
+    process.env.MONGODB_URI || "mongodb://localhost/working-cafes-project",
+    {
+      useNewUrlParser: true
+    }
+  )
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
