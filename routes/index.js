@@ -78,7 +78,8 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
   Cafes.create({
     name: req.body.name,
     address: req.body.address,
-    description: req.body.description
+    description: req.body.description,
+    postedBy: req.body.user
   })
     .then(cafe => {
       res.redirect("/cafes");
@@ -92,10 +93,6 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
 //   Cafes.findById(req.params.cafeId);
 //   res.render("cafeDetails.hbs");
 // });
-
-
-
-
 
 
 module.exports = router;
