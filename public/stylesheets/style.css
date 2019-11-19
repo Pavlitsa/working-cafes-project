@@ -7,11 +7,7 @@ body {
   font-family: "Roboto", sans-serif; }
 
 a {
-<<<<<<< HEAD
-  border: 3px solid mediumaquamarine;
-=======
   border: 3px solid white;
->>>>>>> auth
   background-color: mediumaquamarine;
   color: white;
   padding: 15px;
@@ -124,7 +120,11 @@ form button:hover {
   padding: 20px;
   width: 100%; }
 
-<<<<<<< HEAD
+h4 {
+  text-align: center;
+  color: #fff;
+  font-weight: 100; }
+
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -137,11 +137,5 @@ form button:hover {
   line-height: 18px;
   border-radius: 3px;
   display: none; }
-=======
-h4 {
-  text-align: center;
-  color: #fff;
-  font-weight: 100; }
->>>>>>> auth
 
 /*# sourceMappingURL=style.css.map */
