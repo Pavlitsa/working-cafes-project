@@ -33,11 +33,11 @@ router.get("/cafeForm", loginCheck(), (req, res, next) => {
 });
 
 router.get("/cafes", loginCheck(), (req, res, next) => {
-  // console.log("route cafe");
+  console.log(req.user);
   Cafes.find()
     .then(cafe => {
       //console.log(cafe);
-      res.render("cafes.hbs", { cafe: cafe });
+      res.render("cafes.hbs", { user: req.user.username, cafe: cafe });
     })
     .catch(err => {
       next(err);
@@ -92,8 +92,5 @@ router.post("/api/points", (req, res, next) => {
       next(err);
     });
 });
-
-
-
 
 module.exports = router;

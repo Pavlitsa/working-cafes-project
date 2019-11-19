@@ -1,14 +1,11 @@
-<h1>Welcome:{{user.username}}</h1>
+<h6>Welcome:{{user}}</h6>
 
-{{#if cafe}}
-<h2>Your profile</h2>
-{{/if}}
 
-<h1>Here is our list of cafes</h1>
-<a href="/cafeForm">Add a cafe</a>
+<a class="details" href="/cafeForm">Add a cafe</a>
 <br>
 <br>
-<a href="/auth/logout">Logout</a>
+<a class="details" href="/auth/logout">Logout</a>
+
 <div id='map' style='width: 600px; height: 400px;'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicGF2aXoiLCJhIjoiY2syenk4cThtMDJmZzNucmN0cXM2OXVqZCJ9.kWENQ9HBsyj_LbjsAZqB4Q';
@@ -81,8 +78,8 @@
     marker.on('dragend', onDragEnd);
 </script> --}}
 
-<a href="/cafeForm">Add a cafe</a>
-<a href="/auth/logout">Logout</a>
+{{!-- <a href="/cafeForm">Add a cafe</a>
+<a href="/auth/logout">Logout</a> --}}
 
 <h1>List</h1>
 {{#each cafe}}
@@ -94,4 +91,6 @@
 </ul>
 
 <hr>
+
+
 {{/each}}
