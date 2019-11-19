@@ -8,6 +8,9 @@ a {
 h1 {
   text-align: center; }
 
+ul {
+  list-style: none; }
+
 .landing-text {
   text-align: center; }
 

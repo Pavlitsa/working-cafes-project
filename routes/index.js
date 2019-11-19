@@ -5,6 +5,9 @@ const router = express.Router();
 const User = require("../models/User");
 const Cafes = require("../models/Cafes");
 
+// Mapbox model
+const Point = require("../models/Point");
+
 /* GET home page */
 
 // Here we create all the routes that are related to the landing or home page or anything that is in the big 'views' folder
@@ -64,5 +67,33 @@ router.post("/cafes/:cafeId", (req, res, next) => {
   Cafes.findById(req.params.findById);
   res.render("cafeDetails.hbs");
 });
+
+router.get("/api/points", (req, res, next) => {
+  Point.find()
+    .then(points => {
+      res.json(points);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.post("/api/points", (req, res, next) => {
+  // retrieve coordinates from req.body
+  console.log(req.body);
+  // use these coordinates to create a Point
+  Point.create({
+    coordinates: req.body.coordinates
+  })
+    .then(() => {
+      res.json();
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+
+
 
 module.exports = router;
