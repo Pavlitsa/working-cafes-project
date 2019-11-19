@@ -25,11 +25,13 @@
     let marker = new mapboxgl.Marker({
         draggable: true,
         color: "red"
-    }).setLngLat([13, 52]).addTo(map);
+    }).setLngLat([13, 52]).addTo(map); // set coordinates for marker, place on map
+
     marker.on("dragend", () => {
         const lngLat = marker.getLngLat();
         console.log(lngLat);
-        map.flyTo({ center: lngLat })
+        map.flyTo({ center: lngLat });
+
         axios.post("/api/points", {
             coordinates: [lngLat.lng, lngLat.lat]
         }).then(response => {
@@ -38,6 +40,7 @@
             console.log(err);
         })
     });
+    
     const getMarkers = () => {
         axios.get('/api/points').then(response => {
             response.data.forEach(point => {
