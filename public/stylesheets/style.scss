@@ -9,11 +9,7 @@ body {
 }
 
 a {
-<<<<<<< HEAD
   border: 3px solid mediumaquamarine;
-=======
-  border: 3px solid white;
->>>>>>> auth
   background-color: mediumaquamarine;
   color: white;
   padding: 15px;
@@ -136,7 +132,6 @@ form button:hover {
   padding: 20px;
   width: 100%;
 }
-<<<<<<< HEAD
 
 .coordinates {
   background: rgba(0,0,0,0.5);
@@ -151,32 +146,3 @@ form button:hover {
   border-radius: 3px;
   display: none;
   }
-=======
-h4 {
-  text-align: center;
-  color: #fff;
-  font-weight: 100;
-}
-
-//here all definitions to apply globally
-
-//desktop
-@media only screen and (min-width: 1200) {
-}
-
-//tablet landscape
-@media screen and (min-width: 1024px) and (max-width: 1600px) {
-} // end media query
-
-//tablet portrait
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-} //end media definition
-
-//smartphone landscape
-@media screen and (min-width: 480px) and (max-width: 767px) {
-} //end media query
-
-//smartphone portrait
-@media screen /*and (min-width: 320px) */ and (max-width: 479px) {
-}
->>>>>>> auth
