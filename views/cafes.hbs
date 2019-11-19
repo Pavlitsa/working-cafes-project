@@ -1,13 +1,15 @@
-{{!-- <a href="/cafes/new">Post a room</a>
-{{#if user}}
-<a href="/rooms">View all rooms</a>
-{{/if}} --}}
+<h1>Welcome:{{user.username}}</h1>
+
+{{#if cafe}}
+<h2>Your profile</h2>
+{{/if}}
 
 <h1>Here is our list of cafes</h1>
 <a href="/cafeForm">Add a cafe</a>
 <br>
 <br>
 <a href="/auth/logout">Logout</a>
+<<<<<<< HEAD
 <div id='map' style='width: 600px; height: 400px;'></div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicGF2aXoiLCJhIjoiY2syenk4cThtMDJmZzNucmN0cXM2OXVqZCJ9.kWENQ9HBsyj_LbjsAZqB4Q';
@@ -94,6 +96,15 @@
 
 <<<<<<< HEAD
 =======
+=======
+
+{{!-- <a href="/profile/{{_id}}{{name}}">Profile</a> --}}
+{{#each cafe}}
+
+<p>{{name}}</p>
+<p> {{address}}</p>
+<p>{{description}}</p>
+>>>>>>> auth
 <hr>
 
 >>>>>>> mapbox

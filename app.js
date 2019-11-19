@@ -68,7 +68,7 @@ hbs.registerHelper("ifUndefined", (value, options) => {
 });
 
 // default value for title local
-app.locals.title = "Working Cafes";
+app.locals.title = "coffeefi";
 
 // Enable authentication using session + passport
 app.use(
@@ -80,11 +80,13 @@ app.use(
   })
 );
 
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}))
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true
+  })
+);
 
 app.use(flash());
 require("./passport")(app);

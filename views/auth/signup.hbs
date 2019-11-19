@@ -7,10 +7,15 @@
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+
+  <input type="password" name="password" id="password" required
+    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}">
+  <h6>Your password should contain at least one uppercase letter, one downcase letter, one number and be at least 8 to
+    15
+    characters long and special characters.</h6>
   <br>
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
