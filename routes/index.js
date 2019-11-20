@@ -6,7 +6,6 @@ const User = require("../models/User");
 const Cafes = require("../models/Cafes");
 
 // Mapbox model
-const Point = require("../models/Point");
 
 /* GET home page */
 
@@ -18,22 +17,25 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/api/points", (req, res, next) => {
-  Point.find()
-    .then(points => {
-      res.json(points);
+router.get("/api/cafes", (req, res, next) => {
+  Cafes.find()
+    .then(cafes => {
+      res.json(cafes);
     })
     .catch(err => {
       next(err);
     });
 });
 
-router.post("/api/points", (req, res, next) => {
+router.post("/api/cafes", (req, res, next) => {
   // retrieve coordinates from req.body
-  console.log(req.body);
   // use these coordinates to create a Point
-  Point.create({
-    coordinates: req.body.coordinates
+  Cafes.create({
+    name: req.body.name,
+    address: req.body.address,
+    description: req.body.description,
+    coordinates: req.body.coordinates,
+    postedBy: req.user._id
   })
     .then(() => {
       res.json();
@@ -58,11 +60,10 @@ router.get("/cafeForm", loginCheck(), (req, res, next) => {
 });
 
 router.get("/cafes", loginCheck(), (req, res, next) => {
-  console.log(req.user);
   Cafes.find()
     .then(cafe => {
       //console.log(cafe);
-      res.render("cafes.hbs", { user: req.user.username, cafe: cafe });
+      res.render("cafes.hbs", { user: req.user, cafe: cafe });
     })
     .catch(err => {
       next(err);

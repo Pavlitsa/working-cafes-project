@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const cloudinary = require("cloudinary").v2;
 
 const cafesSchema = new Schema({
   name: String,
