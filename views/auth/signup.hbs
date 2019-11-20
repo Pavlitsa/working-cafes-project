@@ -1,29 +1,30 @@
-<h2>Signup</h2>
+<h2>SignUp</h2>
 
 <form action="/auth/signup" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <input id="username" type="text" name="username" placeholder="Username">
 
   <br><br>
 
   <label for="password">Password</label>
 
-  <input type="password" name="password" id="password" required
+  <input type="password" name="password" id="password" placeholder="Password" required
     pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}">
-  <h6>Your password should contain at least one uppercase letter, one downcase letter, one number and be at least 8 to
+  <p>Your password should contain at least one uppercase letter, one downcase letter, one number and be at least 8 to
     15
-    characters long and special characters.</h6>
+    characters long and special characters.</p>
   <br>
   {{#if message }}
   <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <br><br>
 
-  <button>Create account</button>
+
+  <button>Create an account</button>
 
   <p class="account-message">
-    Do you already have an account?
+    Do you already have an account?<br>
+
     <a href="/auth/login">Login</a>
   </p>
 </form>

@@ -1,14 +1,32 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Courgette|Playfair+Display+SC&display=swap");
 body {
-  padding: 30px;
+  padding-top: 30px;
   font-size: 20px;
   background-image: url(/images/cafe.jpg);
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  width: 100%; }
 
 a {
   border: 3px solid white;
   background-color: mediumaquamarine;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 20px; }
+
+a:hover {
+  background: #211a23;
+  transition: 0.3s ease background; }
+
+.color {
+  border: 3px solid white;
+  background-color: crimson;
   color: white;
   padding: 15px;
   text-align: center;
@@ -25,15 +43,22 @@ h2 {
 
 h1 {
   font-size: 50px;
-  text-align: center; }
+  text-align: center;
+  font-family: "Courgette", cursive; }
+
+p {
+  font-size: 15px;
+  text-align: left;
+  color: #fff; }
 
 h6 {
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
   color: #fff; }
 
 ul {
-  list-style: none; }
+  list-style: none;
+  color: #fff; }
 
 .landing-text {
   text-align: center;
@@ -53,8 +78,8 @@ ul {
   align-items: center; }
 
 footer {
-  background: #666;
-  color: white;
+  background: darkgray;
+  color: black;
   text-align: center;
   margin-bottom: auto;
   position: absolute;
@@ -62,16 +87,28 @@ footer {
   width: 100%;
   height: 2.5rem; }
 
+footer p {
+  font-size: 15px; }
+
 .details {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   width: 5%;
-  align-items: center; }
+  margin-right: auto; }
+
+.logout {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  justify-items: flex-end;
+  align-items: flex-end;
+  width: 5%; }
 
 form {
   margin: 30px auto;
-  width: 380px; }
+  width: 20%; }
 
 form label {
   display: inline-block;
@@ -124,5 +161,29 @@ h4 {
   text-align: center;
   color: #fff;
   font-weight: 100; }
+
+.account-message {
+  font-size: 20px;
+  text-align: center; }
+
+.account-message a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  width: 50%;
+  font-size: 20px;
+  margin: 0 auto; }
+
+#map {
+  height: 70%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; }
+
+@media screen and (min-width: 1024px) and (max-width: 1600px) {
+  form {
+    margin: 30px auto;
+    width: 50%; } }
 
 /*# sourceMappingURL=style.css.map */

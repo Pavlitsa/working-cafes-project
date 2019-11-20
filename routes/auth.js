@@ -35,6 +35,16 @@ router.post(
   })
 );
 
+router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "/auth/login",
+    successRedirect: "/"
+  })
+);
+
 // Here the browser is asking the server to read this signup page
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -76,7 +86,7 @@ router.post("/signup", (req, res, next) => {
     newUser
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/cafes");
       })
       .catch(err => {
         res.render("auth/signup", { message: "Something went wrong" });
