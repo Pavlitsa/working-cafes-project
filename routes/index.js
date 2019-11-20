@@ -74,6 +74,7 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
 
 router.post("/cafes", loginCheck(), (req, res, next) => {
   //if (!req.body.address) return res.redirect("/cafes");
+
   Cafes.create({
     name: req.body.name,
     address: req.body.address,
