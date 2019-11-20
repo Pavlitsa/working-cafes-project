@@ -26,7 +26,7 @@ router.get("/api/cafes", (req, res, next) => {
       next(err);
     });
 });
-
+/*
 router.post("/api/cafes", (req, res, next) => {
   // retrieve coordinates from req.body
   // use these coordinates to create a Point
@@ -44,7 +44,7 @@ router.post("/api/cafes", (req, res, next) => {
       next(err);
     });
 });
-
+*/
 const loginCheck = () => {
   return (req, res, next) => {
     if (req.user) {
@@ -55,12 +55,9 @@ const loginCheck = () => {
   };
 };
 
-router.get("/cafeForm", loginCheck(), (req, res, next) => {
-  res.render("cafeForm.hbs");
-});
-
 router.get("/cafes", loginCheck(), (req, res, next) => {
   Cafes.find()
+    .populate("postedBy")
     .then(cafe => {
       //console.log(cafe);
       res.render("cafes.hbs", { user: req.user, cafe: cafe });
@@ -76,11 +73,13 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
 // });
 
 router.post("/cafes", loginCheck(), (req, res, next) => {
+  //if (!req.body.address) return res.redirect("/cafes");
   Cafes.create({
     name: req.body.name,
     address: req.body.address,
     description: req.body.description,
-    postedBy: req.body.user
+    coordinates: req.body.coordinates,
+    postedBy: req.user._id
   })
     .then(cafe => {
       res.redirect("/cafes");
@@ -94,6 +93,5 @@ router.post("/cafes", loginCheck(), (req, res, next) => {
 //   Cafes.findById(req.params.cafeId);
 //   res.render("cafeDetails.hbs");
 // });
-
 
 module.exports = router;

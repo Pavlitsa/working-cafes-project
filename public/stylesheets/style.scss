@@ -153,6 +153,10 @@ form button {
   width: 100%;
 }
 
+.add-cafe-description {
+  display: none;
+}
+
 form button:hover {
   background: #fff;
   color: #43a3e6;
@@ -188,8 +192,7 @@ h4 {
 #map {
   height: 70%;
   width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 55%;
 }
 
 .coordinates {
