@@ -26,27 +26,11 @@ router.get("/api/cafes", (req, res, next) => {
       next(err);
     });
 });
-/*
-router.post("/api/cafes", (req, res, next) => {
-  // retrieve coordinates from req.body
-  // use these coordinates to create a Point
-  Cafes.create({
-    name: req.body.name,
-    address: req.body.address,
-    description: req.body.description,
-    coordinates: req.body.coordinates,
-    postedBy: req.user._id
-  })
-    .then(() => {
-      res.json();
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-*/
+
 const loginCheck = () => {
   return (req, res, next) => {
+    console.log("User", req.user);
+
     if (req.user) {
       next();
     } else {
@@ -59,7 +43,6 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
   Cafes.find()
     .populate("postedBy")
     .then(cafe => {
-      console.log(req.user);
       res.render("cafes.hbs", { user: req.user, cafe: cafe });
     })
     .catch(err => {

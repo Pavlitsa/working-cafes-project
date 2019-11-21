@@ -1,21 +1,22 @@
 <div class="page">
     <div class="header-container">
         <div class="header">
-            <h6>Hi {{user.username}} !</h6>
+            <h3>Hi {{user.username}} !</h3>
             <a class="logout" href="/auth/logout">Logout</a>
         </div>
 
         <div class="header-map-container">
             <div class="desc">
-                Search and Pin the cafes on the map and add a description about the cafe
-                press enter.
+                Search for a working cafe near you or pin the working cafes you know to help others!
             </div>
             <form onsubmit="axiosPost()">
-                <input class="add-cafe-description" type="text" placeholder="Description...">
+                <input class="add-cafe-description" type="text"
+                    placeholder="Add comment or description and press 'Enter'">
             </form>
             <div>
-                <div id='map'></div>
-                <div id="info"></div>
+                <div id='map'>
+                    <div id="info"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +44,7 @@
         var geocoder = new MapboxGeocoder({ // Initialize the geocoder
             accessToken: mapboxgl.accessToken, // Set the access token
             mapboxgl: mapboxgl, // Set the mapbox-gl instance
-            placeholder: 'Search for coffee places in Berlin', // Placeholder text for the search bar
+            placeholder: 'Search for working cafes in Berlin', // Placeholder text for the search bar
             bbox: [13.249066317660635, 52.41424490784732, 13.540030204072025, 52.5949388733805], // Boundary for Berlin
             proximity: {
                 longitude: 13.40,
@@ -68,9 +69,7 @@
             // `result` event is triggered when a user makes a selection
             // Add a marker at the result's coordinates
             geocoder.on('result', function (ev) {
-                var popup = new mapboxgl.Popup({ offset: 25 })
-                    .setText(`hey`);
-                const resultGeocoder = map.getSource('single-point').setData(ev.result).setPopup(popup);
+                const resultGeocoder = map.getSource('single-point').setData(ev.result);
                 // access the data from the json file
                 //console.log('geoCoder result', resultGeocoder)
                 cafeName = resultGeocoder._data.text;
@@ -82,7 +81,7 @@
                 cafeLt = resultGeocoder._data.center[1];
                 cafeCoordinates = [cafeLng, cafeLt];
                 document.querySelector(".add-cafe-description").style.display = "block"
-                document.querySelector("#info").style.display = "inline"
+                document.querySelector("#info").style.display = "block"
                 document.querySelector('#info').innerHTML = `
                 <div>
                 <li>${cafeName}</li>

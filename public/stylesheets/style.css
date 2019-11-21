@@ -70,7 +70,7 @@ h6 {
 ul {
   list-style: none;
   color: #211a23;
-  background-color: rgba(190, 188, 175, 0.6);
+  background-color: rgba(212, 202, 214, 0.6);
   text-align: center; }
 
 .page {
@@ -96,7 +96,7 @@ h1 {
   height: 100vh; }
 
 .desc {
-  background-color: rgba(190, 188, 175, 0.6);
+  background-color: rgba(212, 202, 214, 0.6);
   padding: 20px;
   margin-bottom: 2%;
   width: 760px;
@@ -192,7 +192,7 @@ footer p {
 
 .input-field {
   background-color: white;
-  color: white;
+  color: black;
   padding: 18px 0;
   width: 250px;
   text-align: center;
@@ -206,7 +206,7 @@ footer p {
 .add-cafe-description {
   display: none;
   background-color: white;
-  color: white;
+  color: black;
   padding: 18px 0;
   width: 800px;
   text-align: center;
@@ -239,12 +239,20 @@ h4 {
   height: 600px;
   width: 800px;
   margin: 40px auto;
-  border: 2px solid black; }
+  border: 2px solid black;
+  position: relative; }
 
 #info {
+  color: black;
+  padding: 8px 15px;
+  font-weight: bold;
+  background-color: rgba(199, 241, 241, 0.6);
   list-style: none;
-  position: relative;
-  top: 0px; }
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-align: center;
+  z-index: 1; }
 
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
