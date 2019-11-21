@@ -4,7 +4,7 @@
 body {
   padding-top: 30px;
   font-size: 20px;
-  background-image: url(/images/img5.jpg);
+  background-image: url(/images/cafes.jpg);
   font-family: "Roboto", sans-serif;
   background-position: cover;
   background-repeat: no-repeat;
@@ -13,39 +13,51 @@ body {
 }
 
 a {
-  background-color: mediumaquamarine;
+  background-color: rgb(147, 218, 240);
   color: white;
-  padding: 10px;
+  padding: 15px 100px 15px 100px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 3px 1px;
-  border-radius: 15px;
+  border-radius: 5px;
+}
+
+#login {
+  background-color: rgb(147, 218, 240);
+  color: white;
+  padding: 15px 104px 15px 104px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
 }
 a:hover {
   background: #211a23;
   transition: 0.3s ease background;
 }
 .color {
-  border: 3px solid white;
-  background-color: crimson;
+  // border: 3px solid white;
+  background-color: rgb(231, 93, 120);
   color: white;
-  padding: 15px;
+  padding: 15px 55px 15px 55px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 3px 1px;
-  border-radius: 20px;
+  // border-radius: 20px;
 }
 h2 {
   font-size: 50px;
   text-align: center;
   color: #211a23;
 }
-h1 {
-  font-size: 50px;
+#title {
+  font-size: 70px;
   text-align: center;
   font-family: "Courgette", cursive;
 }
@@ -66,7 +78,7 @@ ul {
 
 .landing-text {
   text-align: center;
-  color: black;
+  color: white;
   font-weight: 100;
 }
 
@@ -193,7 +205,8 @@ h4 {
 #map {
   height: 70%;
   width: 50%;
-  margin-left: 55%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .coordinates {
