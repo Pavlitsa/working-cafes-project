@@ -1,29 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Jomolhari&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cabin|Inconsolata|Muli&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Courgette|Playfair+Display+SC&display=swap");
 body {
-  padding-top: 30px;
   font-size: 20px;
-  background-image: url(/images/cafes.jpg);
-  font-family: "Roboto", sans-serif;
-  background-position: cover;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh; }
+  font-family: "Cabin", sans-serif;
+  height: 100vh;
+  margin: 0; }
 
-a {
-  background-color: #93daf0;
-  color: white;
-  padding: 15px 100px 15px 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 3px 1px;
-  border-radius: 5px; }
-
-#login {
-  background-color: #93daf0;
+.login {
+  background-color: rgba(147, 218, 240, 0.8);
   color: white;
   padding: 15px 104px 15px 104px;
   text-align: center;
@@ -33,34 +18,56 @@ a {
   margin: 3px 1px;
   border-radius: 5px; }
 
+.signup {
+  background-color: rgba(147, 218, 240, 0.8);
+  color: white;
+  padding: 15px 100px 15px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px; }
+
+#login:hover {
+  background: #211a23;
+  transition: 0.3s ease background; }
+
+#signup:hover {
+  background: #211a23;
+  transition: 0.3s ease background; }
+
 a:hover {
   background: #211a23;
   transition: 0.3s ease background; }
 
 .color {
-  background-color: #e75d78;
+  background-color: rgba(231, 93, 120, 0.9);
   color: white;
-  padding: 15px 55px 15px 55px;
+  padding: 15px 59px 15px 59px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 3px 1px; }
+  margin: 3px 1px;
+  border-radius: 5px; }
 
 h2 {
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
   color: #211a23; }
 
 #title {
-  font-size: 70px;
+  font-size: 80px;
   text-align: center;
-  font-family: "Courgette", cursive; }
+  font-family: "Jomolhari", sans-serif;
+  margin-bottom: 0; }
 
 p {
   font-size: 15px;
   text-align: left;
-  color: #211a23; }
+  color: black;
+  font-weight: bold; }
 
 h6 {
   font-size: 18px;
@@ -69,22 +76,43 @@ h6 {
 
 ul {
   list-style: none;
-  color: #211a23; }
+  color: #211a23;
+  background-color: rgba(190, 188, 175, 0.6);
+  text-align: center; }
+
+.page {
+  display: flex;
+  flex-direction: column; }
 
 .landing-text {
+  font-size: 2rem;
   text-align: center;
-  color: white;
-  font-weight: 100; }
+  color: black;
+  font-weight: bold;
+  margin-top: 0; }
 
-.landing-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; }
+h1 {
+  text-align: center; }
+
+.landing-box {
+  background-image: url(/images/cafes.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+
+.desc {
+  background-color: rgba(190, 188, 175, 0.6);
+  padding: 20px;
+  margin-bottom: 2%;
+  width: 760px;
+  text-align: center; }
 
 .landing-nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 200px;
   align-items: center; }
 
@@ -99,7 +127,8 @@ footer {
   height: 2.3rem; }
 
 footer p {
-  font-size: 15px; }
+  font-size: 15px;
+  text-align: center; }
 
 .details {
   display: flex;
@@ -108,51 +137,50 @@ footer p {
   width: 5%;
   margin-right: auto; }
 
-.logout {
-  margin-left: auto;
+.header {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.header-container {
+  background-image: url(/images/cafes.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.header-map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.logout {
+  background-color: rgba(147, 218, 240, 0.8);
+  color: white;
+  padding: 15px 50px 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
+  height: 20px; }
+
+#form-container {
+  background-image: url(/images/cafes.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  justify-items: flex-end;
-  align-items: flex-end;
-  width: 5%; }
+  align-items: center; }
 
 form {
   margin: 30px auto;
   width: 20%; }
-
-form label {
-  display: inline-block;
-  margin-bottom: 10px;
-  text-align: center;
-  width: 100%;
-  color: #211a23; }
-
-form input,
-form button {
-  font-size: 14px;
-  outline: 0;
-  padding: 4px;
-  width: 100%;
-  margin-bottom: 20px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 8px 10px;
-  border: 2px solid white; }
-
-form button {
-  background: #93daf0;
-  border: 3px solid #93daf0;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 14px;
-  padding: 8px 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.3s ease background;
-  width: 100%; }
 
 .add-cafe-description {
   display: none; }
@@ -177,22 +205,19 @@ h4 {
 
 .account-message {
   font-size: 20px;
-  text-align: center; }
-
-.account-message a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  width: 50%;
-  font-size: 20px;
-  margin: 0 auto; }
+  text-align: center;
+  color: black;
+  font-weight: normal; }
 
 #map {
-  height: 70%;
-  width: 50%;
+  height: 600px;
+  width: 800px;
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  border: 2px solid black; }
+
+#info {
+  list-style: none; }
 
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
@@ -207,9 +232,35 @@ h4 {
   border-radius: 3px;
   display: none; }
 
-@media screen and (min-width: 1024px) and (max-width: 1600px) {
+.list {
+  width: 800px;
+  margin: 0 auto; }
+
+.list-item {
+  text-align: left; }
+
+.cafe-name {
+  font-weight: bold; }
+
+@media (min-width: 320px) and (max-width: 1600px) {
   form {
     margin: 30px auto;
     width: 50%; } }
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  #map {
+    height: 300px;
+    width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid black; } }
+
+@media screen and (max-width: 479px) {
+  #map {
+    height: 500px;
+    width: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px solid black; } }
 
 /*# sourceMappingURL=style.css.map */

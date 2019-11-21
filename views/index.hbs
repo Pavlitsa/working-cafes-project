@@ -1,18 +1,25 @@
-<h1 id="title">{{title}}</h1>
-<p class="landing-text">Find a working Cafe near you </p>
-{{!-- {{#if message}}
-<p>{{message}}</p>
-{{/if}} --}}
+<div class="landing-box">
 
-<div class="landing-nav">
-  <div><a id="login" href="/auth/login">Log in</a>
-  </div>
-  <div><a href="/auth/signup">Sign up</a>
-  </div>
-  {{!-- <div><a href="/cafes">List of Cafes</a>
+  <h1 id="title">{{title}}</h1>
+  <p class="landing-text">Find a working Cafe near you! </p>
+
+  <br>
+
+  <div class="landing-nav">
+
+    <div><a href="/auth/login" class="login">Log in</a>
+    </div>
+
+    <div><a href="/auth/signup" class="signup">Sign up</a>
+    </div>
+
+    {{!-- <div><a href="/cafes">List of Cafes</a>
   </div> --}}
-  <div><a class="color" href="/auth/google">Sign in with Google</a>
+    <div><a class="color" href="/auth/google">Sign in with Google</a>
+    </div>
+
   </div>
+  
 </div>
 
 <footer>

@@ -1,27 +1,31 @@
-<h2>Login</h2>
-<h4>to discover all the working Cafes in Berlin</h4>
+<div id="form-container">
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Username">
+  <h2>LOG IN</h2>
+  {{!-- <h4>..to discover all the working Cafes in Berlin</h4> --}}
 
-  <br><br>
+  <form action="/auth/login" method="POST">
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username" placeholder="Username">
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder=" Password">
-  <br>
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+    <br>
 
-  <br><br>
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder=" Password">
+    <br>
+    {{#if message }}
+    <div class="error-message">{{ message }}</div>
+    {{/if}}
 
-  <button>Login</button>
+    <br>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+    <button>Login</button>
+
+    <p class="account-message">
+      Don't have an account yet? </p>
+    <a href="/auth/signup" class="signup">Sign up</a>
+
+  </form>
+
+</div>
 
 {{!-- <a href="/">Landing page</a> --}}

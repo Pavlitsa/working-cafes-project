@@ -1,132 +1,145 @@
-<h6>Hi {{user.username}} !</h6>
+<div class="page">
+    <div class="header-container">
+        <div class="header">
+            <h6>Hi {{user.username}} !</h6>
+            <a class="logout" href="/auth/logout">Logout</a>
+        </div>
 
-<a class="logout" href="/auth/logout">Logout</a>
+        <div class="header-map-container">
+            <div class="desc">
+                Search and Pin the cafes on the map and add a description about the cafe
+                press enter.
+            </div>
 
+            <div id='map'></div>
+            <div id="info"></div>
 
-<div id='map' style='width: 800px; height: 600px;'></div>
+            <form onsubmit="axiosPost()">
+                <input class="add-cafe-description" type="text" placeholder="Description...">
+            </form>
 
-<div id="info"></div>
-<pre id='coordinates' class='coordinates'></pre>
-
-<form onsubmit="axiosPost()">
-    <input class="add-cafe-description" type="text" placeholder="Description...">
-
-</form>
-
-<script>
-
-    let cafeName;
-    let cafeAddress;
-    let cafePostcode;
-    let city;
-    let country;
-    let cafeLng;
-    let cafeLt;
-    let cafeCoordinates;
-
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGF2aXoiLCJhIjoiY2syenk4cThtMDJmZzNucmN0cXM2OXVqZCJ9.kWENQ9HBsyj_LbjsAZqB4Q';
-    var coordinates = document.getElementById('coordinates');
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [13.40, 52.52],
-        zoom: 10
-    });
+        </div>
+    </div>
 
 
-    var geocoder = new MapboxGeocoder({ // Initialize the geocoder
-        accessToken: mapboxgl.accessToken, // Set the access token
-        mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        placeholder: 'Search for coffee places in Berlin', // Placeholder text for the search bar
-        bbox: [13.249066317660635, 52.41424490784732, 13.540030204072025, 52.5949388733805], // Boundary for Berlin
-        proximity: {
-            longitude: 13.40,
-            latitude: 52.52
-        } // Coordinates of Berlin
-    });
 
-    map.addControl(geocoder);
+    <script>
 
-    // After the map style has loaded on the page,
-    // add a source layer and default styling for a single point
-    map.on('load', function () {
-        map.addSource('single-point', {
-            type: 'geojson',
-            data: {
-                type: 'FeatureCollection',
-                features: []
-            }
+        let cafeName;
+        let cafeAddress;
+        let cafePostcode;
+        let city;
+        let country;
+        let cafeLng;
+        let cafeLt;
+        let cafeCoordinates;
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGF2aXoiLCJhIjoiY2syenk4cThtMDJmZzNucmN0cXM2OXVqZCJ9.kWENQ9HBsyj_LbjsAZqB4Q';
+        var coordinates = document.getElementById('coordinates');
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [13.40, 52.52],
+            zoom: 10
         });
 
-        // Listen for the `result` event from the Geocoder
-        // `result` event is triggered when a user makes a selection
-        // Add a marker at the result's coordinates
-        geocoder.on('result', function (ev) {
-            const resultGeocoder = map.getSource('single-point').setData(ev.result);
-            // access the data from the json file
-            //console.log('geoCoder result', resultGeocoder)
-            cafeName = resultGeocoder._data.text;
-            cafeAddress = resultGeocoder._data.properties.address;
-            cafePostcode = resultGeocoder._data.context[1].text;
-            city = resultGeocoder._data.context[2].text;
-            country = resultGeocoder._data.context[3].text;
-            cafeLng = resultGeocoder._data.center[0];
-            cafeLt = resultGeocoder._data.center[1];
-            cafeCoordinates = [cafeLng, cafeLt];
-            document.querySelector(".add-cafe-description").style.display = "block"
-            document.querySelector('#info').innerHTML = `
+
+        var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+            accessToken: mapboxgl.accessToken, // Set the access token
+            mapboxgl: mapboxgl, // Set the mapbox-gl instance
+            placeholder: 'Search for coffee places in Berlin', // Placeholder text for the search bar
+            bbox: [13.249066317660635, 52.41424490784732, 13.540030204072025, 52.5949388733805], // Boundary for Berlin
+            proximity: {
+                longitude: 13.40,
+                latitude: 52.52
+            } // Coordinates of Berlin
+        });
+
+        map.addControl(geocoder);
+
+        // After the map style has loaded on the page,
+        // add a source layer and default styling for a single point
+        map.on('load', function () {
+            map.addSource('single-point', {
+                type: 'geojson',
+                data: {
+                    type: 'FeatureCollection',
+                    features: []
+                }
+            });
+
+            // Listen for the `result` event from the Geocoder
+            // `result` event is triggered when a user makes a selection
+            // Add a marker at the result's coordinates
+            geocoder.on('result', function (ev) {
+                const resultGeocoder = map.getSource('single-point').setData(ev.result);
+                // access the data from the json file
+                //console.log('geoCoder result', resultGeocoder)
+                cafeName = resultGeocoder._data.text;
+                cafeAddress = resultGeocoder._data.properties.address;
+                cafePostcode = resultGeocoder._data.context[1].text;
+                city = resultGeocoder._data.context[2].text;
+                country = resultGeocoder._data.context[3].text;
+                cafeLng = resultGeocoder._data.center[0];
+                cafeLt = resultGeocoder._data.center[1];
+                cafeCoordinates = [cafeLng, cafeLt];
+                document.querySelector(".add-cafe-description").style.display = "block"
+                document.querySelector("#info").style.display = "block"
+                document.querySelector('#info').innerHTML = `
                 <li>${cafeName}</li>
                 <li>${cafeAddress}</li>
                 <li>${cafePostcode}, ${city}</li>
                 <li>${country}</li>
             `
 
+            });
         });
-    });
 
 
-    const axiosPost = () => {
-        axios.post("/cafes", {
-            // added new variables as values inside model keys
-            name: cafeName,
-            address: `${cafeAddress}, ${cafePostcode}, ${city}, ${country}`, //backticks
-            coordinates: cafeCoordinates,
-            description: document.querySelector('.add-cafe-description').value
-        }).then(response => {
-            console.log(response.data)
-            getMarkers();
-        }).catch(err => {
-            console.log(err);
-        })
-    }
-
-    const getMarkers = () => {
-
-        axios.get('api/cafes').then(response => {
-            response.data.forEach(cafe => {
-                console.log('getMarkers', cafe);
-                new mapboxgl.Marker().setLngLat(cafe.coordinates).addTo(map);
+        const axiosPost = () => {
+            axios.post("/cafes", {
+                // added new variables as values inside model keys
+                name: cafeName,
+                address: `${cafeAddress}, ${cafePostcode}, ${city}, ${country}`, //backticks
+                coordinates: cafeCoordinates,
+                description: document.querySelector('.add-cafe-description').value
+            }).then(response => {
+                console.log(response.data)
+                getMarkers();
+            }).catch(err => {
+                console.log(err);
             })
-        }).catch(err => {
-            console.log(err);
-        })
-    }
+        }
 
-    getMarkers();
-</script>
+        const getMarkers = () => {
 
-<h1>List</h1>
+            axios.get('api/cafes').then(response => {
+                response.data.forEach(cafe => {
+                    console.log('getMarkers', cafe);
+                    new mapboxgl.Marker().setLngLat(cafe.coordinates).addTo(map);
+                })
+            }).catch(err => {
+                console.log(err);
+            })
+        }
 
-{{#each cafe}}
+        getMarkers();
+    </script>
+    <div class="list">
+        <h1>List of Pinned Cafes</h1>
 
-<ul>
-    <li>{{name}}</li>
-    <li>{{address}}</li>
-    <li>{{description}}</li>
-    <li>Posted by: {{postedBy.username}}</li>
-</ul>
+        {{#each cafe}}
 
-<hr>
+        <div class="list-item">
+            <ul>
+                <li class="cafe-name" >{{name}}</li>
+                <li>{{address}}</li>
+                <li> <strong>Description: </strong>{{description}}</li>
+                <li> <strong>Posted by: </strong> {{postedBy.username}}</li>
+            </ul>
+        </div>
 
+        {{/each}}
+    </div>
 
-{{/each}}
+</div>
