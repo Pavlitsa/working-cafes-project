@@ -1,19 +1,20 @@
-<h1>{{title}}</h1>
+<h1 id="title">{{title}}</h1>
 <p class="landing-text">Find a working Cafe near you </p>
 {{!-- {{#if message}}
 <p>{{message}}</p>
 {{/if}} --}}
 
-<nav class="landing-nav">
-  <div><a href="/auth/login">Login</a>
+<div class="landing-nav">
+  <div><a id="login" href="/auth/login">Log in</a>
   </div>
-  <div><a href="/auth/signup">Signup</a>
+  <div><a href="/auth/signup">Sign up</a>
   </div>
-  <div><a href="/cafes">List of Cafes</a>
-  </div>
+  {{!-- <div><a href="/cafes">List of Cafes</a>
+  </div> --}}
   <div><a class="color" href="/auth/google">Sign in with Google</a>
   </div>
-</nav>
+</div>
+
 <footer>
   <p>Developed by: Pavlina and Madhavi</p>
   {{!-- <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p> --}}
