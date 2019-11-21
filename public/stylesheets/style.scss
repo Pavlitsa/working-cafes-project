@@ -9,7 +9,8 @@ body {
   background-position: cover;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -51,26 +52,31 @@ a:hover {
   margin: 3px 1px;
   // border-radius: 20px;
 }
+
 h2 {
   font-size: 50px;
   text-align: center;
   color: #211a23;
 }
+
 #title {
   font-size: 70px;
   text-align: center;
   font-family: "Courgette", cursive;
 }
+
 p {
   font-size: 15px;
   text-align: left;
   color: #211a23;
 }
+
 h6 {
   font-size: 18px;
   text-align: left;
   color: #211a23;
 }
+
 ul {
   list-style: none;
   color: #211a23;
@@ -95,19 +101,22 @@ ul {
   height: 200px;
   align-items: center;
 }
+
 footer {
   background: darkgray;
   color: black;
   text-align: center;
   margin-bottom: auto;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 2.5rem;
+  width: 100vw;
+  height: 2.3rem;
 }
+
 footer p {
   font-size: 15px;
 }
+
 .details {
   display: flex;
   flex-direction: row;
@@ -115,6 +124,7 @@ footer p {
   width: 5%;
   margin-right: auto;
 }
+
 .logout {
   margin-left: auto;
   display: flex;
@@ -124,6 +134,7 @@ footer p {
   align-items: flex-end;
   width: 5%;
 }
+
 form {
   margin: 30px auto;
   width: 20%;
@@ -139,7 +150,7 @@ form label {
 
 form input,
 form button {
-  box-sizing: border-box;
+  // box-sizing: border-box;
   font-size: 14px;
   outline: 0;
   padding: 4px;
@@ -148,17 +159,17 @@ form button {
   background: #fff;
   border-radius: 5px;
   padding: 8px 10px;
-  border: 2px solid black;
+  border: 2px solid white;
 }
 
 form button {
-  background: #43a3e6;
-  border: 3px solid white;
+  background: rgb(147, 218, 240);
+  border: 3px solid rgb(147, 218, 240);
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-size: 20px;
+  font-size: 14px;
   padding: 8px 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -184,15 +195,18 @@ form button:hover {
   padding: 20px;
   width: 100%;
 }
+
 h4 {
   text-align: center;
   color: #211a23;
   font-weight: 100;
 }
+
 .account-message {
   font-size: 20px;
   text-align: center;
 }
+
 .account-message a {
   display: flex;
   align-items: center;
@@ -202,6 +216,7 @@ h4 {
   font-size: 20px;
   margin: 0 auto;
 }
+
 #map {
   height: 70%;
   width: 50%;

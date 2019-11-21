@@ -123,6 +123,7 @@ passport.use(
     }
   )
 );
+
 //every time we want to create new routes, we add them there, same as with index.js and auth.js
 
 const index = require("./routes/index");
