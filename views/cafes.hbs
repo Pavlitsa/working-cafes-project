@@ -10,19 +10,15 @@
                 Search and Pin the cafes on the map and add a description about the cafe
                 press enter.
             </div>
-
-            <div id='map'></div>
-            <div id="info"></div>
-
             <form onsubmit="axiosPost()">
                 <input class="add-cafe-description" type="text" placeholder="Description...">
             </form>
-
+            <div>
+                <div id='map'></div>
+                <div id="info"></div>
+            </div>
         </div>
     </div>
-
-
-
     <script>
 
         let cafeName;
@@ -72,7 +68,9 @@
             // `result` event is triggered when a user makes a selection
             // Add a marker at the result's coordinates
             geocoder.on('result', function (ev) {
-                const resultGeocoder = map.getSource('single-point').setData(ev.result);
+                var popup = new mapboxgl.Popup({ offset: 25 })
+                    .setText(`hey`);
+                const resultGeocoder = map.getSource('single-point').setData(ev.result).setPopup(popup);
                 // access the data from the json file
                 //console.log('geoCoder result', resultGeocoder)
                 cafeName = resultGeocoder._data.text;
@@ -84,13 +82,14 @@
                 cafeLt = resultGeocoder._data.center[1];
                 cafeCoordinates = [cafeLng, cafeLt];
                 document.querySelector(".add-cafe-description").style.display = "block"
-                document.querySelector("#info").style.display = "block"
+                document.querySelector("#info").style.display = "inline"
                 document.querySelector('#info').innerHTML = `
+                <div>
                 <li>${cafeName}</li>
                 <li>${cafeAddress}</li>
                 <li>${cafePostcode}, ${city}</li>
                 <li>${country}</li>
-            `
+                </div>`
 
             });
         });
@@ -116,7 +115,11 @@
             axios.get('api/cafes').then(response => {
                 response.data.forEach(cafe => {
                     console.log('getMarkers', cafe);
-                    new mapboxgl.Marker().setLngLat(cafe.coordinates).addTo(map);
+                    var popup = new mapboxgl.Popup({ offset: 25 })
+                        .setText(`${cafe.name}, ${cafe.address}`);
+                    new mapboxgl.Marker().setLngLat(cafe.coordinates).setPopup(popup).addTo(map);
+                    // create the popup
+
                 })
             }).catch(err => {
                 console.log(err);
@@ -130,12 +133,17 @@
 
         {{#each cafe}}
 
-        <div class="list-item">
-            <ul>
-                <li class="cafe-name" >{{name}}</li>
-                <li>{{address}}</li>
-                <li> <strong>Description: </strong>{{description}}</li>
-                <li> <strong>Posted by: </strong> {{postedBy.username}}</li>
+        <div>
+            <ul class="list-item">
+                <div>
+                    <li class="cafe-name">{{name}}</li>
+                    <li>{{address}}</li>
+                    <li> <strong>Description: </strong>{{description}}</li>
+                </div>
+                <div>
+                    <li> <strong>Posted by: </strong> {{postedBy.username}}</li>
+                </div>
+
             </ul>
         </div>
 

@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Cabin|Inconsolata|Muli&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-
 // a {
 //   background-color: rgba(147, 218, 240, 0.8);
 //   color: white;
@@ -22,36 +21,28 @@ body {
   margin: 0;
 }
 
-.login {
-  background-color: rgba(147, 218, 240, 0.8);
-  color: white;
-  padding: 15px 104px 15px 104px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 3px 1px;
-  border-radius: 5px;
-}
-
 .signup {
   background-color: rgba(147, 218, 240, 0.8);
   color: white;
-  padding: 15px 100px 15px 100px;
+  padding: 18px 0;
+  width: 250px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 3px 1px;
   border-radius: 5px;
+  border: none;
 }
 
-#login:hover {
-  background: #211a23;
-  transition: 0.3s ease background;
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#signup:hover {
+.signup:hover {
   background: #211a23;
   transition: 0.3s ease background;
 }
@@ -89,7 +80,7 @@ h2 {
 
 p {
   font-size: 15px;
-  text-align: left;
+  text-align: center;
   color: rgb(0, 0, 0);
   font-weight: bold;
 }
@@ -201,7 +192,7 @@ footer p {
   height: 20px;
 }
 
-#form-container {
+#login-container {
   background-image: url(/images/cafes.jpg);
   background-position: cover;
   background-repeat: no-repeat;
@@ -213,57 +204,52 @@ footer p {
   align-items: center;
 }
 
-form {
-  margin: 30px auto;
-  width: 20%;
+.signup-container {
+  background-image: url(/images/cafes.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-// form label {
-//   display: inline-block;
-//   margin-bottom: 10px;
-//   text-align: center;
-//   width: 100%;
-//   color: #211a23;
-// }
-
-// form input,
-// form button {
-//   // box-sizing: border-box;
-//   font-size: 14px;
-//   outline: 0;
-//   padding: 4px;
-//   width: 100%;
-//   margin-bottom: 20px;
-//   background: #fff;
-//   border-radius: 5px;
-//   padding: 8px 10px;
-//   border: 2px solid white;
-// }
-
-// form button {
-//   font-family: "Cabin", sans-serif;
-//   background: rgb(147, 218, 240);
-//   border: 3px solid rgb(147, 218, 240);
-//   border-radius: 5px;
-//   color: #fff;
-//   cursor: pointer;
-//   display: inline-block;
-//   font-size: 14px;
-//   padding: 10px 10px;
-//   text-decoration: none;
-//   // text-transform: uppercase;
-//   transition: 0.3s ease background;
-//   width: 100%;
-// }
+.form {
+  margin: 30px auto;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-field {
+  background-color: rgb(255, 255, 255);
+  color: white;
+  padding: 18px 0;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
+  border: none;
+}
 
 .add-cafe-description {
   display: none;
-}
-
-form button:hover {
-  background: #fff;
-  color: #43a3e6;
-  transition: 0.3s ease background;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  padding: 18px 0;
+  width: 800px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
+  border: none;
 }
 
 .error-message {
@@ -288,26 +274,17 @@ h4 {
   font-weight: normal;
 }
 
-// .account-message a {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   justify-items: center;
-//   width: 50%;
-//   font-size: 20px;
-//   margin: 0 auto;
-// }
-
 #map {
   height: 600px;
   width: 800px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 40px auto;
   border: 2px solid black;
 }
 
 #info {
   list-style: none;
+  position: relative;
+  top: 0px;
 }
 
 .coordinates {
@@ -331,38 +308,36 @@ h4 {
 
 .list-item {
   text-align: left;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cafe-name {
   font-weight: bold;
 }
 
-//here all definitions to apply globally
-
-//desktop
-@media only screen and (min-width: 1200) {
-}
-
-//tablet landscape
-@media (min-width: 320px) and (max-width: 1600px) {
-  form {
+@media (min-width: 321px) and (max-width: 1600px) {
+  .form {
     margin: 30px auto;
     width: 50%;
   }
-} // end media query
-
-//tablet portrait
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-} //end media definition
+}
 
 //smartphone landscape
 @media screen and (min-width: 480px) and (max-width: 767px) {
   #map {
     height: 300px;
     width: 450px;
-    margin-right: auto;
-    margin-left: auto;
-    border: 2px solid black;
+  }
+  .desc {
+    width: 450px;
+  }
+  .list {
+    width: 450px;
+  }
+  body {
+    font-size: 16px;
   }
 } //end media query
 
@@ -371,8 +346,14 @@ h4 {
   #map {
     height: 500px;
     width: 300px;
-    margin-right: auto;
-    margin-left: auto;
-    border: 2px solid black;
+  }
+  .desc {
+    width: 300px;
+  }
+  .list {
+    width: 300px;
+  }
+  body {
+    font-size: 12px;
   }
 }

@@ -7,33 +7,26 @@ body {
   height: 100vh;
   margin: 0; }
 
-.login {
-  background-color: rgba(147, 218, 240, 0.8);
-  color: white;
-  padding: 15px 104px 15px 104px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 3px 1px;
-  border-radius: 5px; }
-
 .signup {
   background-color: rgba(147, 218, 240, 0.8);
   color: white;
-  padding: 15px 100px 15px 100px;
+  padding: 18px 0;
+  width: 250px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 3px 1px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  border: none; }
 
-#login:hover {
-  background: #211a23;
-  transition: 0.3s ease background; }
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
-#signup:hover {
+.signup:hover {
   background: #211a23;
   transition: 0.3s ease background; }
 
@@ -65,7 +58,7 @@ h2 {
 
 p {
   font-size: 15px;
-  text-align: left;
+  text-align: center;
   color: black;
   font-weight: bold; }
 
@@ -167,7 +160,7 @@ footer p {
   border-radius: 5px;
   height: 20px; }
 
-#form-container {
+#login-container {
   background-image: url(/images/cafes.jpg);
   background-position: cover;
   background-repeat: no-repeat;
@@ -178,17 +171,50 @@ footer p {
   justify-content: space-evenly;
   align-items: center; }
 
-form {
+.signup-container {
+  background-image: url(/images/cafes.jpg);
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center; }
+
+.form {
   margin: 30px auto;
-  width: 20%; }
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.input-field {
+  background-color: white;
+  color: white;
+  padding: 18px 0;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
+  border: none; }
 
 .add-cafe-description {
-  display: none; }
-
-form button:hover {
-  background: #fff;
-  color: #43a3e6;
-  transition: 0.3s ease background; }
+  display: none;
+  background-color: white;
+  color: white;
+  padding: 18px 0;
+  width: 800px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 3px 1px;
+  border-radius: 5px;
+  border: none; }
 
 .error-message {
   background: #f02b63;
@@ -212,12 +238,13 @@ h4 {
 #map {
   height: 600px;
   width: 800px;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 40px auto;
   border: 2px solid black; }
 
 #info {
-  list-style: none; }
+  list-style: none;
+  position: relative;
+  top: 0px; }
 
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
@@ -237,30 +264,39 @@ h4 {
   margin: 0 auto; }
 
 .list-item {
-  text-align: left; }
+  text-align: left;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; }
 
 .cafe-name {
   font-weight: bold; }
 
-@media (min-width: 320px) and (max-width: 1600px) {
-  form {
+@media (min-width: 321px) and (max-width: 1600px) {
+  .form {
     margin: 30px auto;
     width: 50%; } }
 
 @media screen and (min-width: 480px) and (max-width: 767px) {
   #map {
     height: 300px;
-    width: 450px;
-    margin-right: auto;
-    margin-left: auto;
-    border: 2px solid black; } }
+    width: 450px; }
+  .desc {
+    width: 450px; }
+  .list {
+    width: 450px; }
+  body {
+    font-size: 16px; } }
 
 @media screen and (max-width: 479px) {
   #map {
     height: 500px;
-    width: 300px;
-    margin-right: auto;
-    margin-left: auto;
-    border: 2px solid black; } }
+    width: 300px; }
+  .desc {
+    width: 300px; }
+  .list {
+    width: 300px; }
+  body {
+    font-size: 12px; } }
 
 /*# sourceMappingURL=style.css.map */
