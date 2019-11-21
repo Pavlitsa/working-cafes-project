@@ -59,7 +59,7 @@ router.get("/cafes", loginCheck(), (req, res, next) => {
   Cafes.find()
     .populate("postedBy")
     .then(cafe => {
-      //console.log(cafe);
+      console.log(req.user);
       res.render("cafes.hbs", { user: req.user, cafe: cafe });
     })
     .catch(err => {

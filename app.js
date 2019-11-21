@@ -8,12 +8,13 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-
+const User = require("./models/User");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const bcryptjs = require("bcryptjs");
 
 mongoose
@@ -94,8 +95,6 @@ app.use(
 app.use(flash());
 require("./passport")(app);
 
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-
 passport.use(
   new GoogleStrategy(
     {
@@ -107,17 +106,20 @@ passport.use(
       User.findOne({ googleId: profile.id })
         .then(user => {
           if (user) {
+            console.log("User", user);
+
             done(null, user);
           } else {
             return User.create({
               googleId: profile.id,
-              name: profile.displayName
+              username: profile.displayName
             }).then(newUser => {
               done(null, newUser);
             });
           }
         })
         .catch(err => {
+          console.log("error", err);
           done(err);
         });
     }
